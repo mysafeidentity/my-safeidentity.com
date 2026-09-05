@@ -72,6 +72,7 @@
             box-shadow: var(--box-shadow);
             text-align: right;
             border-right: 5px solid var(--primary-blue);
+            display: none; /* مخفية حتى يتم إدخال كلمة السر الصحيحة */
         }
 
         .content-section h2 {
@@ -99,12 +100,28 @@
     </div>
 
     <div class="main-container">
-        <div class="content-section">
+        <!-- محتوى الصفحة (يظهر فقط بعد كتابة الكود الصحيح) -->
+        <div class="content-section" id="protected-content">
             <h2>سجل الأطفال المستفيدين (قسم خاص)</h2>
             <p>هذه الصفحة مخصصة لعرض وإدارة سجل الأطفال المسجلين في مبادرة "الهوية الآمنة".</p>
             <p>يمكنك لاحقاً إضافة الجداول، النماذج الخاصة بتسجيل بيانات الأطفال، أو أي معلومات سرية وخاصة بالأسرة والمؤسسة هنا.</p>
         </div>
     </div>
+
+    <!-- كود الجافاسكريبت لطلب كلمة السر أول ما تفتح الصفحة -->
+    <script>
+        // كلمة السر الافتراضية هي 1234، تقدر تبدلها بأي رقم أو كلمة تحبها بين القوسين
+        let password = prompt("هذه الصفحة محمية. يرجى إدخال كلمة السر:");
+        
+        if (password === "0qbi281998") {
+            // إذا كانت كلمة السر صحيحة، نظهر المحتوى
+            document.getElementById("protected-content").style.display = "block";
+        } else {
+            // إذا كانت خطأ أو ضغط إلغاء، نرجعوه للصفحة الرئيسية
+            alert("كلمة السر غير صحيحة!");
+            window.location.href = "index.html";
+        }
+    </script>
 
 </body>
 </html>
