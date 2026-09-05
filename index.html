@@ -6,9 +6,6 @@
     <title>الهوية الآمنة - Safe Identity</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-
     <style>
         :root {
             --primary-blue: #0A2540;
@@ -200,15 +197,19 @@
             text-align: center;
         }
 
-        /* حاوية الباركود الحقيقي */
-        #qrcode-container {
+        /* حاوية الباركود بالصورة المباشرة */
+        .qr-code-box {
             background-color: white;
             padding: 5px;
             border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             border: 2px solid var(--primary-green);
+            text-align: center;
+        }
+        
+        .qr-code-box img {
+            width: 90px;
+            height: 90px;
+            display: block;
         }
     </style>
 </head>
@@ -243,7 +244,7 @@
                 <h3>أمان</h3>
             </div>
             <div class="value-box">
-                <i class="fas fa-shield-virus"></i>
+                <i class="fas fa3-shield-virus"></i>
                 <h3>حماية</h3>
             </div>
         </div>
@@ -267,21 +268,13 @@
                 <p><i class="fas fa-globe"></i> alhawia-amna.com</p>
             </div>
             
-            <div id="qrcode-container"></div>
+            <!-- باركود حقيقي جاهز يخدم ديركت بدون أخطاء -->
+            <div class="qr-code-box">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://alhawia-amna.com" alt="QR Code">
+            </div>
         </div>
 
     </div>
-
-    <script>
-        new QRCode(document.getElementById("qrcode-container"), {
-            text: "https://alhawia-amna.com", /* بدلها برابط موقعك الحقيقي لاحقاً */
-            width: 90,
-            height: 90,
-            colorDark: "#0A2540",
-            colorLight: "#ffffff",
-            correctLevel: QRCode.CorrectLevel.H
-        });
-    </script>
 
 </body>
 </html>
